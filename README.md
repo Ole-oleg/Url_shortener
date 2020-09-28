@@ -25,7 +25,7 @@ http://18.223.136.2/api/?url=google.com&slug=search
 {"status": "fail", "comment": "slug in database", "slug": "search"}
 ```
 # Инструкция по установке
-В файле requirements.txt перечислены все необходимые python пакеты. Их необходимо установить. Кроме того, вам потребуется Redis сервер, чтобы установить его на Linux введите команду:
+В файле requirements.txt перечислены все необходимые python пакеты. Их необходимо установить. Кроме того, вам потребуется Redis сервер, чтобы установить его в Linux введите команду:
 ```sh
 $ sudo apt install redis-server
 ```
