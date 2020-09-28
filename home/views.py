@@ -11,6 +11,7 @@ database = redis.StrictRedis(host=settings.REDIS_HOST, port=settings.REDIS_PORT,
 
 @require_GET
 def go_to(request, slug):
+    """ Takes slug and redirects to the connected cite """
     if slug in database:
         url = database.get(slug)
         url.decode()
@@ -20,10 +21,12 @@ def go_to(request, slug):
 
 
 def home_page(request):
+    """ just returns home page """
     return HttpResponse(render(request, 'index.html'))
 
 
 def show_url(request):
+    """ returns html page with the shorten link or (if url is empty) just reloads home page """
     if request.GET.get('url', ''):
         data = shortener_universal(request)
         return HttpResponse(render(request, 'shorten.html', data))
