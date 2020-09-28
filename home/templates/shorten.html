@@ -17,6 +17,8 @@
 
 {% elif comment == 'slug in database'  %}
 <h1>Sorry, this slug is already used. Try another one.</h1>
+{% elif comment == 'invalid slug' %}
+<h1>Sorry, this slug is invalid. Try another one.</h1>
 {% else %}
 <h1> Error. Try agan later.</h1>
 {% endif %}

@@ -7,6 +7,7 @@ import requests
 import random
 import string
 import redis
+import re
 
 
 database = redis.StrictRedis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=0)
@@ -45,10 +46,14 @@ def shortener_universal(request):
             return {'status': 'fail',
                     'comment': 'slug in database', 'slug': slug}
 
+        if not re.match(r'^[a-zA-z0-9_.-]*$', slug):
+
+            return {'status': 'fail',
+                    'comment': 'invalid slug', 'slug': slug}
     else:
         slug = make_slug()
         database.set(slug, url)
-    return {'status': 'ok', 'urll': url,
+    return {'status': 'ok', 'url': url,
             'short_url': reverse_lazy('home', (slug,), request=request)}
 
 
