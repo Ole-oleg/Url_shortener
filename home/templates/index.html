@@ -11,12 +11,13 @@
 <div class="wrapper">
 	<h2>URL</h2>
 	<input name = "url" type="text" class="input"
-			  placeholder="Shorten your link">
+			  placeholder="Shorten your link" pattern="(https?:\/\/)?(www.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)">
 	<h2>SLUG</h2>
 	<input name = "slug" type="text" class="input"
-			  placeholder="Human-readable form (optional)">
+			  placeholder="Human-readable form (optional)" pattern="([a-zA-Z0-9_-]{1,256})">
 	<button class="button">Shorten</button>
 </div>
 </form>
+
 
 {% endblock %}
