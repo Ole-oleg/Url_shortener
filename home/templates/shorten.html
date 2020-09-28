@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title_block %}
+	Short URL
+{% endblock %}
+
+{% block body_block %}
+
+{%if status == "ok" %}
+
+    <h1>Your new (not so) short URL:
+
+        <a href="{{ short_url }}">{{ short_url }}</a></h1>
+
+{% elif comment == 'url validation fail' %}
+<h1>We cannot reach your cite. Maybe your URL is incorrect.</h1>
+
+{% elif comment == 'slug in database'  %}
+<h1>Sorry, this slug is already used. Try another one.</h1>
+{% else %}
+<h1> Error. Try agan later.</h1>
+{% endif %}
+    <form action='{% url "homepage" %}' method='get'>
+        <button class="button">Go back</button>
+    </form>
+{% endblock %}

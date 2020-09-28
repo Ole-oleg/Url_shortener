@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title_block %}
+	URL shortener
+{% endblock %}
+
+{% block body_block %}
+
+	<p><h1>URL Shortener</h1></p>
+<form action='short/' method='get'>
+<div class="wrapper">
+	<h2>URL</h2>
+	<input name = "url" type="text" class="input"
+			  placeholder="Shorten your link">
+	<h2>SLUG</h2>
+	<input name = "slug" type="text" class="input"
+			  placeholder="Human-readable form (optional)">
+	<button class="button">Shorten</button>
+</div>
+</form>
+
+{% endblock %}

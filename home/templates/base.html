@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<style>
+	/* unvisited link */
+	a:link {
+	  color: black;
+	}
+
+	/* visited link */
+	a:visited {
+	  color: black;
+	}
+
+	/* mouse over link */
+	a:hover {
+	  color: orange;
+	}
+
+	/* selected link */
+	a:active {
+	  color: red;
+	}
+
+</style>
+<head>
+	<meta charset="UTF-8">
+	<title>
+        {% block title_block %}
+        {% endblock %}
+    </title>
+	<link rel="stylesheet" href="{% static 'home/styles.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+</head>
+<body>
+{% block body_block %}
+
+{% endblock %}
+</body>
+</html>
