@@ -28,6 +28,7 @@ def home_page(request):
 def show_url(request):
     """ returns html page with the shorten link or (if url is empty) just reloads home page """
     if request.GET.get('url', ''):
+        # using shortener_universal from api.views to get dict with information
         data = shortener_universal(request)
         return HttpResponse(render(request, 'shorten.html', data))
     else:
