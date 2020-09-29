@@ -29,9 +29,18 @@ def shortener_universal(request):
 
     url = request.GET.get('url', '')
     slug = request.GET.get('slug', '')
-
+    
+    good_url = re.match(
+        r'(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)',
+        url)
+    
+    
     if '://' in url:
         url = url.split('://')[-1]
+    
+    if not good_url:
+        return {'status': 'fail',
+                'comment': 'url validation fail', 'url': url}
 
     try:
         requests.get(f'http://{url}', verify=False)
