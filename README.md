@@ -1,4 +1,4 @@
-# URL shortener for avito
+# URL shortener
 
 Простой аналог bitly на django. Посмотреть на его работу можно [тут.](http://18.223.136.2/) Сайт загружен на AWS по адресу http://18.223.136.2/
 
